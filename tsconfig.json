@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "noEmit": true,
+        "outDir": "./dist",
+        "target": "ES6",
+        "module": "commonjs",
+        "lib": ["DOM", "ESNext"],
+        "jsx": "react",
+        "strict": true,
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+        "forceConsistentCasingInFileNames": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "pretty": true,
+        "stripInternal": true,
+        "declaration": true,
+        "importsNotUsedAsValues": "error",
+        "allowJs": true, // for snapshot testing with storybook, we can remove this if we convert storybook conf in ts
+        "importHelpers": true
+    },
+    "include": ["./src", "./stories", "./test", "./scripts"]
+}

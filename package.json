@@ -1,0 +1,33 @@
+{
+  "name": "fabric",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/react": "^6.4.9",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@vanilla-extract/babel-plugin": "^1.1.4",
+    "babel-loader": "^8.2.3",
+    "eslint": "^8.5.0",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "^1.6.8",
+    "@vanilla-extract/webpack-plugin": "^2.1.5"
+  }
+}

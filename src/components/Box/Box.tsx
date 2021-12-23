@@ -3,6 +3,6 @@ import * as style from './Box.css'
 
 export interface BoxProps {}
 
-export const Box: FC<BoxProps> = () => {
-    return <div className={style.className}>Hello</div>
+export const Box: FC<BoxProps> = ({ children }) => {
+    return <div className={style.className}>{children}</div>
 }

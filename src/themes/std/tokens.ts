@@ -1,6 +1,6 @@
-import type { FabricTokensIn } from '../makeTheme'
+import type { FabricTokensRaw } from '../makeTheme'
 
-export const tokens: FabricTokensIn = {
+export const tokens: FabricTokensRaw = {
     name: 'std',
     displayName: 'Standard',
     contentWidth: {

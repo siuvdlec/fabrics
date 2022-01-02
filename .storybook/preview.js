@@ -1,4 +1,5 @@
 import { FabricProvider } from '../src/providers/FabricProvider'
+import { stdTheme } from '../src/themes/std'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,7 +14,7 @@ export const parameters = {
 export const decorators = [
     (Story) => {
         return (
-            <FabricProvider>
+            <FabricProvider theme={stdTheme}>
               <Story />
             </FabricProvider>
         )

@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint-fix": "npm run lint -- --fix",
+    "prettier": "prettier --check \"**/*.{ts,tsx}\"",
+    "prettier-fix": "prettier --write \"**/*.{ts,tsx}\"",
     "storybook": "start-storybook -p 6006",
     "predeploy-storybook": "npm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
@@ -28,6 +32,7 @@
     "babel-loader": "^8.2.3",
     "eslint": "^8.5.0",
     "eslint-config-facile": "^0.5.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-storybook": "^0.5.5",
     "fp-ts": "^2.11.5",
     "gh-pages": "^3.2.3",

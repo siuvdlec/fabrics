@@ -1,5 +1,5 @@
-import { objectMap } from "../library/object"
-import type { BreakpointNames } from "./breakpoints"
+import { objectMap } from '../library/object'
+import type { BreakpointNames } from './breakpoints'
 
 const dimension = [
     'none',
@@ -52,7 +52,7 @@ export interface FabricTokensIn {
 
 export type FabricTokens = ReturnType<typeof decorateTokens>
 
-const px = (v: string | number) => typeof v === 'string' ? v : `${v}px`
+const px = (v: string | number) => (typeof v === 'string' ? v : `${v}px`)
 
 const decorateTokens = (tokens: FabricTokensIn) => {
     return {
@@ -68,7 +68,7 @@ const decorateTokens = (tokens: FabricTokensIn) => {
             page: {
                 padding: tokens.contentWidth.page.padding,
                 max: objectMap(tokens.contentWidth.page.max, px),
-                min: px(tokens.contentWidth.page.min)
+                min: px(tokens.contentWidth.page.min),
             },
         },
         border: {

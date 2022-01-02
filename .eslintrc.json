@@ -3,5 +3,8 @@
     "extends": ["facile/react", "plugin:jsx-a11y/recommended", "plugin:storybook/recommended"],
     "parserOptions": {
         "project": "./tsconfig.json"
+    },
+    "rules": {
+        "react/react-in-jsx-scope": "off"
     }
 }

@@ -12,4 +12,3 @@ export const breakpoints: Breakpoints = {
     tablet: 740,
     desktop: 992,
 }
-

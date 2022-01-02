@@ -18,4 +18,7 @@ const Template: Story<BoxProps> = args => (
 )
 
 export const Base = Template.bind({})
-Base.args = {}
+Base.args = {
+    padding: { mobile: 'std' },
+    width: { tablet: '1/2' },
+}

@@ -1,4 +1,4 @@
-import '../globalStyle/reset.css'
+import '../css/reset.css'
 import type { FC } from 'react'
 import type { FabricTheme } from '../themes/makeTheme'
 

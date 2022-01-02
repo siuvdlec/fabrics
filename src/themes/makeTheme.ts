@@ -1,6 +1,6 @@
 import { pipe } from 'fp-ts/function'
+import type { BreakpointNames } from '../css/breakpoints'
 import { objectMap } from '../library/object'
-import type { BreakpointNames } from './breakpoints'
 
 // -------------------------------------------------------------------------------------
 // FabricTokensRaw
@@ -88,7 +88,7 @@ const stringifyTokens = (tokens: FabricTokens): FabricVanillaTokens => {
     return {
         ...tokens,
         grid: px(tokens.grid),
-        space: objectMap(tokens.space, px),
+        space: objectMap(tokens.space, s => px(tokens.grid * s)),
         contentWidth: {
             page: {
                 padding: tokens.contentWidth.page.padding,

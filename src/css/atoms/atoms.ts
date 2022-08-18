@@ -1,5 +1,5 @@
 import type { vars } from '../../themes/vars.css'
-import * as resetStyles from '../reset.css'
+import * as commonStyles from '../common/common.css'
 import { sprinkles, RequiredResponsiveValue } from './sprinkles.css'
 
 type Sprinkles = Parameters<typeof sprinkles>[0]
@@ -16,11 +16,9 @@ export const atoms = ({ reset, ...rest }: Atoms) => {
         return sprinkles(rest)
     }
 
-    const elementReset = resetStyles.element[reset as keyof typeof resetStyles.element]
+    const elementReset = commonStyles.resetElement[reset as keyof typeof commonStyles.resetElement]
 
     const sprinklesClasses = sprinkles(rest)
 
-    return `${resetStyles.base}${elementReset ? ` ${elementReset}` : ''}${
-        sprinklesClasses ? ` ${sprinklesClasses}` : ''
-    }`
+    return `${elementReset ? ` ${elementReset}` : ''}${sprinklesClasses ? ` ${sprinklesClasses}` : ''}`
 }

@@ -1,8 +1,15 @@
+import { objectMap } from '../../library/object'
 import { vars } from '../../themes/vars.css'
-import { scaleMap } from '../scaleFactor'
+import { getScaleFactorObj, scaleMap } from '../scaleFactor'
 
 export const unresponsiveProperties = {
     overflow: ['hidden', 'scroll', 'visible', 'auto'],
+    overflowX: ['hidden', 'scroll', 'visible', 'auto'],
+    overflowWrap: {
+        normal: 'normal',
+        anywhere: 'anywhere',
+        breakWord: 'break-word',
+    },
     userSelect: ['none'],
     outline: ['none'],
     opacity: [0],
@@ -11,7 +18,12 @@ export const unresponsiveProperties = {
         1: 1,
         2: 2,
     },
-    cursor: ['default', 'pointer'],
+    cursor: {
+        auto: 'auto',
+        pointer: 'pointer',
+        notAllowed: 'not-allowed',
+        grab: 'grab',
+    },
     pointerEvents: ['none'],
     top: [0],
     bottom: [0],
@@ -20,26 +32,55 @@ export const unresponsiveProperties = {
     minWidth: {
         0: '0%',
     },
-    //maxWidth: vars.contentWidth,
-    //transition: vars.transition,
+    transition: vars.transitions,
+    textTransform: {
+        none: 'none',
+        capitalize: 'capitalize',
+        uppercase: 'uppercase',
+        lowercase: 'lowercase',
+    },
+    fontWeight: vars.typography.fontWeight,
+    fontFamily: vars.typography.fontFamily,
+    textDecoration: {
+        overline: 'overline',
+        lineThrough: 'line-through',
+        underline: 'underline',
+    },
+    fontStyle: {
+        normal: 'normal',
+        italic: 'italic',
+        oblique: 'oblique',
+    },
+    letterSpacing: vars.typography.letterSpacing,
+    whiteSpace: {
+        breakSpaces: 'break-spaces',
+        normal: 'normal',
+        nowrap: 'nowrap',
+    },
+    textOverflow: {
+        ellipsis: 'ellipsis',
+    },
 } as const
 
 export type UnresponsiveProperties = keyof typeof unresponsiveProperties
 
 export const responsiveProperties = {
     display: {
-        none: 'none',
         block: 'block',
         inline: 'inline',
+        none: 'none',
         inlineBlock: 'inline-block',
         flex: 'flex',
+        inlineFlex: 'inline-flex',
     },
     position: ['relative', 'absolute', 'fixed'],
     borderRadius: {
         none: '0px',
         full: '9999px',
+        half: '50%',
         ...vars.border.radius,
     },
+    lineHeight: vars.typography.lineHeight,
     height: scaleMap,
     width: scaleMap,
     paddingTop: vars.space,
@@ -60,6 +101,8 @@ export const responsiveProperties = {
         center: 'center',
         flexEnd: 'flex-end',
         spaceBetween: 'space-between',
+        spaceAround: 'space-around',
+        spaceEvenly: 'space-evenly',
     },
     flexDirection: {
         row: 'row',
@@ -71,9 +114,15 @@ export const responsiveProperties = {
         wrap: 'wrap',
         nowrap: 'nowrap',
     },
-    flexShrink: [0],
+    flexShrink: [0, 1],
     flexGrow: [0, 1],
+    flex: [0, 1],
     textAlign: ['left', 'center', 'right'],
+    boxShadow: {
+        none: 'none',
+        ...vars.shadows,
+    },
+    fontSize: objectMap(getScaleFactorObj(), v => `${v}rem`),
 } as const
 
 export type ResponsiveProperties = keyof typeof responsiveProperties

@@ -1,6 +1,9 @@
 import type { FC, ReactNode } from 'react'
-import { breakpointsDictMap } from '../../css/breakpoints'
-import { resolveResponsiveRangeProps, ResponsiveRangeProps } from '../../css/props/responsiveRangeProps'
+import {
+    ResponsiveRangeProps,
+    resolveResponsiveRangeProps,
+    resolveResponsiveRangeFlatPropsOptional,
+} from '../../library/props/responsiveRangeProps'
 import { Box } from '../Box/Box'
 import * as styles from './Hidden.css'
 
@@ -16,7 +19,7 @@ const Hidden: FC<HiddenProps> = ({ children, above, below, print, inline, ...all
 
     const display = inline ? 'inline' : 'block'
 
-    const responsiveDisplay = breakpointsDictMap(b => (rangeProps[b] ? 'none' : display))
+    const responsiveDisplay = resolveResponsiveRangeFlatPropsOptional(rangeProps, 'none' as const, display)
 
     return (
         <Box

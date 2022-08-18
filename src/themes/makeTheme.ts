@@ -1,36 +1,60 @@
 import { pipe } from 'fp-ts/function'
-import type { BreakpointNames } from '../css/breakpoints'
 import { objectMap } from '../library/object'
 
 // -------------------------------------------------------------------------------------
 // FabricTokensRaw
 // -------------------------------------------------------------------------------------
 
-const dimension = [
-    'none',
-    'micro',
-    'xxsmall',
-    'xsmall',
-    'small',
-    'std',
-    'medium',
-    'large',
-    'xlarge',
-    'xxlarge',
-    'extraLarge',
-] as const
-type Dimension = typeof dimension[number]
+export interface TokensRaw {
+    [key: string]: string | TokensRaw | TokenMeasure | TokenMeasureAbsolute
+}
+
+const dimension = ['none', '3xs', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', '3xl'] as const
+export type Dimension = typeof dimension[number]
+
+export interface TokenMeasure {
+    value: number
+    unit: 'px' | 'rem' | '%' | 'em'
+}
+
+export interface TokenMeasureAbsolute extends Partial<TokenMeasure> {
+    value: number
+}
+
+export type FontWeight = 'normal' | 'medium' | 'bold'
 
 export interface FabricTokensRaw {
     name: string
     displayName: string
+    typography: {
+        fontFamily: {
+            std: string
+            alt: string
+        }
+        fontSizeRoot: TokenMeasure
+        color: {
+            std: string
+            selection: string
+        }
+        fontWeight: Record<FontWeight, string>
+        letterSpacing: {
+            s: TokenMeasure
+            m: TokenMeasure
+            l: TokenMeasure
+        }
+        lineHeight: {
+            xs: TokenMeasure | TokenMeasureAbsolute
+            s: TokenMeasure | TokenMeasureAbsolute
+            m: TokenMeasure | TokenMeasureAbsolute
+            l: TokenMeasure | TokenMeasureAbsolute
+        }
+    }
     grid: number
-    space: Record<Exclude<Dimension, 'none'>, number>
+    space: Record<Dimension, TokenMeasure>
     contentWidth: {
         page: {
-            max: Record<BreakpointNames, string | number>
-            padding: Record<BreakpointNames, Dimension>
-            min: number
+            max: TokenMeasure
+            min: TokenMeasure
         }
     }
     transitions: {
@@ -39,19 +63,23 @@ export interface FabricTokensRaw {
     }
     border: {
         radius: {
-            small: number
-            std: number
-            medium: number
+            xs: TokenMeasure
+            s: TokenMeasure
+            m: TokenMeasure
+            l: TokenMeasure
         }
         width: {
-            small: number
-            std: number
-            large: number
+            s: TokenMeasure
+            m: TokenMeasure
         }
     }
     shadows: {
-        medium: string
-        strong: string
+        'drop-0': string
+        'drop-1': string
+    }
+    dimmer: {
+        light: string
+        dark: string
     }
 }
 
@@ -59,53 +87,51 @@ export interface FabricTokensRaw {
 // FabricTokens
 // -------------------------------------------------------------------------------------
 
-export type FabricTokens = ReturnType<typeof makeFabricTokens>
-
-const makeFabricTokens = (tokens: FabricTokensRaw) => {
-    return {
-        ...tokens,
-        space: {
-            ...tokens.space,
-            none: 0,
-        },
-        shadows: {
-            ...tokens.shadows,
-            none: 'none',
-        },
-    }
-}
+export interface FabricTokens extends Required<FabricTokensRaw> {}
 
 // -------------------------------------------------------------------------------------
 // FabricVanillaTokens
 // -------------------------------------------------------------------------------------
 
-type RecursiveToString<A> = A extends Record<any, any> ? { [k in keyof A]: RecursiveToString<A[k]> } : string
+type RecursiveToString<A> = A extends { value: number }
+    ? string
+    : A extends string | number
+    ? string
+    : { [k in keyof A]: RecursiveToString<A[k]> }
+
 export type FabricVanillaTokens = RecursiveToString<FabricTokens>
 
-const px = (v: string | number) => (typeof v === 'string' ? v : `${v}px`)
+const measureToString = (v: TokenMeasure | TokenMeasureAbsolute) =>
+    typeof v.unit === 'undefined' ? `${v.value}` : `${v.value}${v.unit}`
+
+const isTokenMeasure = (a: any): a is TokenMeasure | TokenMeasureAbsolute => typeof a.value === 'number'
+const isString = (a: any): a is string => typeof a === 'string'
+
+export const recursiveToString = <O extends TokensRaw>(ts: O): RecursiveToString<O> =>
+    objectMap(ts, t => {
+        if (isTokenMeasure(t)) {
+            return measureToString(t)
+        }
+
+        if (isString(t)) {
+            return t
+        }
+
+        return recursiveToString(t)
+    }) as RecursiveToString<O>
 
 const stringifyTokens = (tokens: FabricTokens): FabricVanillaTokens => {
+    const { space, grid, ...rts } = tokens
+
     return {
-        ...tokens,
-        grid: px(tokens.grid),
-        space: objectMap(tokens.space, s => px(tokens.grid * s)),
-        contentWidth: {
-            page: {
-                padding: tokens.contentWidth.page.padding,
-                max: objectMap(tokens.contentWidth.page.max, px),
-                min: px(tokens.contentWidth.page.min),
-            },
-        },
-        border: {
-            radius: objectMap(tokens.border.radius, px),
-            width: objectMap(tokens.border.width, px),
-        },
-        shadows: tokens.shadows,
+        ...recursiveToString(rts as Required<typeof rts>),
+        space: objectMap(space, s => measureToString({ value: tokens.grid * s.value, unit: 'px' })),
+        grid: grid.toString(),
     }
 }
 
 export function makeVanillaTokens(tokens: FabricTokensRaw): FabricVanillaTokens {
-    return pipe(tokens, makeFabricTokens, stringifyTokens)
+    return pipe(tokens, stringifyTokens)
 }
 
 // -------------------------------------------------------------------------------------
@@ -114,12 +140,12 @@ export function makeVanillaTokens(tokens: FabricTokensRaw): FabricVanillaTokens 
 
 export interface FabricTheme {
     tokens: FabricTokens
-    className: string
+    tokensClassName: string
 }
 
-export function makeFabricTheme(tokens: FabricTokensRaw, className: string): FabricTheme {
+export function makeFabricTheme(tokens: FabricTokens, tokensClassName: string): FabricTheme {
     return {
-        tokens: makeFabricTokens(tokens),
-        className,
+        tokens,
+        tokensClassName,
     }
 }

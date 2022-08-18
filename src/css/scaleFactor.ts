@@ -1,19 +1,22 @@
 export const scaleFactor = [
-    0.5, // 8
     0.563, // 9
     0.75, // 12
-    0.9375, // 15
     1, // 16
     1.125, // 18
-    1.25, // 20
-    1.875, // 30
-    2, // 32
+    1.5, // 24
+    2.75, // 44
     3, // 48
     3.5, // 56
 ] as const
 
 export const getScaleFactorObj = () =>
     Object.fromEntries(scaleFactor.map(v => [v, v])) as Record<typeof scaleFactor[number], typeof scaleFactor[number]>
+
+export const scaleFactorIcons = [
+    1, // 16
+    1.5, // 24
+    2, // 32
+] as const
 
 const getPerc = (scale: number) => `${scale * 100}%`
 

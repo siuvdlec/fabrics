@@ -29,9 +29,6 @@ export const unresponsiveProperties = {
     bottom: [0],
     left: [0],
     right: [0],
-    minWidth: {
-        0: '0%',
-    },
     transition: vars.transitions,
     textTransform: {
         none: 'none',
@@ -83,6 +80,13 @@ export const responsiveProperties = {
     lineHeight: vars.typography.lineHeight,
     height: scaleMap,
     width: scaleMap,
+    minWidth: {
+        0: '0%',
+        ...scaleMap,
+    },
+    maxWidth: scaleMap,
+    rowGap: vars.space,
+    columnGap: vars.space,
     paddingTop: vars.space,
     paddingBottom: vars.space,
     paddingRight: vars.space,

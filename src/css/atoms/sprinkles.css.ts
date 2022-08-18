@@ -36,6 +36,7 @@ const responsiveAtomicProperties = defineProperties({
         margin: ['marginBottom', 'marginTop', 'marginLeft', 'marginRight'],
         marginY: ['marginTop', 'marginBottom'],
         marginX: ['marginLeft', 'marginRight'],
+        gap: ['rowGap', 'columnGap'],
     },
 })
 

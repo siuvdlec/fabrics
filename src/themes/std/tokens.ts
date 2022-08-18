@@ -37,7 +37,7 @@ export const tokens: FabricTokensRaw = {
         page: {
             max: {
                 unit: 'px',
-                value: 1280,
+                value: 1312,
             },
             min: {
                 unit: 'px',

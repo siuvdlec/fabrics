@@ -1,5 +1,5 @@
 {
-  "name": "fabric",
+  "name": "fabric-ui",
   "version": "0.1.0",
   "description": "Structural react components library",
   "repository": "https://github.com/siuvdlec/fabric",
@@ -27,8 +27,8 @@
   "engines": {
     "node": ">=16"
   },
-  "main": "dist/fabric.cjs.js",
-  "module": "dist/fabric.esm.js",
+  "main": "dist/fabric-ui.cjs.js",
+  "module": "dist/fabric-ui.esm.js",
   "files": [
     "/dist",
     "/components",
@@ -47,24 +47,24 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "module": "./dist/fabric.esm.js",
-      "default": "./dist/fabric.cjs.js"
+      "module": "./dist/fabric-ui.esm.js",
+      "default": "./dist/fabric-ui.cjs.js"
     },
     "./components": {
-      "module": "./components/dist/fabric-components.esm.js",
-      "default": "./components/dist/fabric-components.cjs.js"
+      "module": "./components/dist/fabric-ui-components.esm.js",
+      "default": "./components/dist/fabric-ui-components.cjs.js"
     },
     "./css/common": {
-      "module": "./css/common/dist/fabric-css-common.esm.js",
-      "default": "./css/common/dist/fabric-css-common.cjs.js"
+      "module": "./css/common/dist/fabric-ui-css-common.esm.js",
+      "default": "./css/common/dist/fabric-ui-css-common.cjs.js"
     },
     "./providers/FabricProvider": {
-      "module": "./providers/FabricProvider/dist/fabric-providers-FabricProvider.esm.js",
-      "default": "./providers/FabricProvider/dist/fabric-providers-FabricProvider.cjs.js"
+      "module": "./providers/FabricProvider/dist/fabric-ui-providers-FabricProvider.esm.js",
+      "default": "./providers/FabricProvider/dist/fabric-ui-providers-FabricProvider.cjs.js"
     },
     "./themes/std": {
-      "module": "./themes/std/dist/fabric-themes-std.esm.js",
-      "default": "./themes/std/dist/fabric-themes-std.cjs.js"
+      "module": "./themes/std/dist/fabric-ui-themes-std.esm.js",
+      "default": "./themes/std/dist/fabric-ui-themes-std.cjs.js"
     }
   },
   "devDependencies": {

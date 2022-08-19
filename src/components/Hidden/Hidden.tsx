@@ -7,13 +7,13 @@ import {
 import { Box } from '../Box/Box'
 import * as styles from './Hidden.css'
 
-interface HiddenProps extends ResponsiveRangeProps {
+export interface HiddenProps extends ResponsiveRangeProps {
     children: ReactNode
     print?: boolean
     inline?: boolean
 }
 
-const Hidden: FC<HiddenProps> = ({ children, above, below, print, inline, ...allBoxDataProps }) => {
+export const Hidden: FC<HiddenProps> = ({ children, above, below, print, inline, ...allBoxDataProps }) => {
     const hiddenOnPrint = Boolean(print)
     const rangeProps = resolveResponsiveRangeProps({ above, below })
 
@@ -32,5 +32,3 @@ const Hidden: FC<HiddenProps> = ({ children, above, below, print, inline, ...all
         </Box>
     )
 }
-
-export { HiddenProps, Hidden }

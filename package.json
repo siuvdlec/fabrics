@@ -1,5 +1,5 @@
 {
-  "name": "fabric-ui",
+  "name": "fabric-x",
   "version": "0.1.0",
   "description": "Structural react components library",
   "repository": "https://github.com/siuvdlec/fabric",
@@ -17,6 +17,8 @@
     "deploy-storybook": "gh-pages -d storybook-static",
     "postdeploy-storybook": "rm -r storybook-static",
     "build-storybook": "build-storybook",
+    "tsc": "tsc",
+    "prebuild": "npm run tsc",
     "build": "preconstruct build",
     "preconstruct:init": "preconstruct init",
     "preconstruct:fix": "preconstruct fix"
@@ -27,8 +29,8 @@
   "engines": {
     "node": ">=16"
   },
-  "main": "dist/fabric-ui.cjs.js",
-  "module": "dist/fabric-ui.esm.js",
+  "main": "dist/fabric-x.cjs.js",
+  "module": "dist/fabric-x.esm.js",
   "files": [
     "/dist",
     "/components",
@@ -38,6 +40,7 @@
   ],
   "preconstruct": {
     "entrypoints": [
+      "index.ts",
       "components/index.ts",
       "css/common/index.ts",
       "providers/FabricProvider.tsx",
@@ -47,24 +50,24 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "module": "./dist/fabric-ui.esm.js",
-      "default": "./dist/fabric-ui.cjs.js"
+      "module": "./dist/fabric-x.esm.js",
+      "default": "./dist/fabric-x.cjs.js"
     },
     "./components": {
-      "module": "./components/dist/fabric-ui-components.esm.js",
-      "default": "./components/dist/fabric-ui-components.cjs.js"
+      "module": "./components/dist/fabric-x-components.esm.js",
+      "default": "./components/dist/fabric-x-components.cjs.js"
     },
     "./css/common": {
-      "module": "./css/common/dist/fabric-ui-css-common.esm.js",
-      "default": "./css/common/dist/fabric-ui-css-common.cjs.js"
+      "module": "./css/common/dist/fabric-x-css-common.esm.js",
+      "default": "./css/common/dist/fabric-x-css-common.cjs.js"
     },
     "./providers/FabricProvider": {
-      "module": "./providers/FabricProvider/dist/fabric-ui-providers-FabricProvider.esm.js",
-      "default": "./providers/FabricProvider/dist/fabric-ui-providers-FabricProvider.cjs.js"
+      "module": "./providers/FabricProvider/dist/fabric-x-providers-FabricProvider.esm.js",
+      "default": "./providers/FabricProvider/dist/fabric-x-providers-FabricProvider.cjs.js"
     },
     "./themes/std": {
-      "module": "./themes/std/dist/fabric-ui-themes-std.esm.js",
-      "default": "./themes/std/dist/fabric-ui-themes-std.cjs.js"
+      "module": "./themes/std/dist/fabric-x-themes-std.esm.js",
+      "default": "./themes/std/dist/fabric-x-themes-std.cjs.js"
     }
   },
   "devDependencies": {

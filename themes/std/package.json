@@ -1,4 +1,4 @@
 {
-  "main": "dist/fabric-ui-themes-std.cjs.js",
-  "module": "dist/fabric-ui-themes-std.esm.js"
+  "main": "dist/fabric-x-themes-std.cjs.js",
+  "module": "dist/fabric-x-themes-std.esm.js"
 }

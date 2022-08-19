@@ -1,0 +1,4 @@
+{
+  "main": "dist/fabric-providers-FabricProvider.cjs.js",
+  "module": "dist/fabric-providers-FabricProvider.esm.js"
+}

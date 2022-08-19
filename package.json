@@ -2,24 +2,78 @@
   "name": "fabric",
   "version": "0.1.0",
   "description": "Structural react components library",
-  "main": "index.js",
+  "repository": "https://github.com/siuvdlec/fabric",
+  "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "--lint": "manypkg check && eslint . --ext .ts,.tsx",
     "lint": "eslint . --ext .ts,.tsx",
-    "lint-fix": "npm run lint -- --fix",
+    "lint-fix:eslint": "eslint . --ext .ts,.tsx --fix",
+    "lint-fix:manypkg": "manypkg fix",
     "prettier": "prettier --check \"**/*.{ts,tsx}\"",
     "prettier-fix": "prettier --write \"**/*.{ts,tsx}\"",
     "storybook": "start-storybook -p 6006",
     "predeploy-storybook": "npm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
     "postdeploy-storybook": "rm -r storybook-static",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "preconstruct build",
+    "preconstruct:init": "preconstruct init",
+    "preconstruct:fix": "preconstruct fix"
   },
-  "author": "siuvdlec@gmail.com",
+  "author": "Iacopo <siuvdlec@gmail.com>",
   "license": "MIT",
   "homepage": "http://siuvdlec.github.io/fabric",
+  "engines": {
+    "node": ">=16"
+  },
+  "main": "dist/fabric.cjs.js",
+  "module": "dist/fabric.esm.js",
+  "files": [
+    "/dist",
+    "/components",
+    "/css",
+    "/providers",
+    "/themes"
+  ],
+  "preconstruct": {
+    "entrypoints": [
+      "components/index.ts",
+      "css/common/index.ts",
+      "providers/FabricProvider.tsx",
+      "themes/std/index.ts"
+    ]
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "module": "./dist/fabric.esm.js",
+      "default": "./dist/fabric.cjs.js"
+    },
+    "./components": {
+      "module": "./components/dist/fabric-components.esm.js",
+      "default": "./components/dist/fabric-components.cjs.js"
+    },
+    "./css/common": {
+      "module": "./css/common/dist/fabric-css-common.esm.js",
+      "default": "./css/common/dist/fabric-css-common.cjs.js"
+    },
+    "./providers/FabricProvider": {
+      "module": "./providers/FabricProvider/dist/fabric-providers-FabricProvider.esm.js",
+      "default": "./providers/FabricProvider/dist/fabric-providers-FabricProvider.cjs.js"
+    },
+    "./themes/std": {
+      "module": "./themes/std/dist/fabric-themes-std.esm.js",
+      "default": "./themes/std/dist/fabric-themes-std.cjs.js"
+    }
+  },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@manypkg/cli": "^0.19.1",
+    "@preconstruct/cli": "^2.2.1",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-links": "^6.5.10",
@@ -43,6 +97,11 @@
     "react-dom": "^18.2.0",
     "typescript": "^4.7.4",
     "webpack": "^5.65.0"
+  },
+  "peerDependencies": {
+    "fp-ts": "^2.12",
+    "react": "^18.2.0",
+    "tslib": "^2.1.0"
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.7.2",

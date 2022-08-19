@@ -1,0 +1,4 @@
+{
+  "main": "dist/fabric-css-common.cjs.js",
+  "module": "dist/fabric-css-common.esm.js"
+}

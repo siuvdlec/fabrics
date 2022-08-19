@@ -12,7 +12,7 @@ const meta: Meta = {
 export default meta
 
 const Template: Story<BoxProps> = args => (
-    <Box {...args}>
+    <Box {...args} style={{ backgroundColor: 'lightgray' }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum ex gravida fermentum efficitur.
     </Box>
 )

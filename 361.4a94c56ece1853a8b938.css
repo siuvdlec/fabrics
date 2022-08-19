@@ -81,6 +81,50 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+._16nbsg40 {
+  --_1y1ypre0: std;
+  --_1y1ypre1: Standard;
+  --_1y1ypre2: 'Mulish', sans-serif;
+  --_1y1ypre3: 'Kanit', sans-serif;
+  --_1y1ypre4: black;
+  --_1y1ypre5: white;
+  --_1y1ypre6: 16px;
+  --_1y1ypre7: 400;
+  --_1y1ypre8: 500;
+  --_1y1ypre9: 700;
+  --_1y1yprea: 0.005em;
+  --_1y1ypreb: 0.01em;
+  --_1y1yprec: 0.04em;
+  --_1y1ypred: 1;
+  --_1y1ypree: 1.15;
+  --_1y1ypref: 1.2;
+  --_1y1ypreg: 1.3;
+  --_1y1ypreh: 1312px;
+  --_1y1yprei: 280px;
+  --_1y1yprej: all .5s ease;
+  --_1y1yprek: all .1s ease;
+  --_1y1yprel: 4px;
+  --_1y1yprem: 8px;
+  --_1y1ypren: 16px;
+  --_1y1ypreo: 24px;
+  --_1y1yprep: 1px;
+  --_1y1ypreq: 2px;
+  --_1y1yprer: 1px 4px 8px rgba(0, 0, 0, 0.05), 0px 10px 16px rgba(0, 0, 0, 0.08);
+  --_1y1ypres: 2px 4px 8px rgba(0, 0, 0, 0.06), 2px 14px 24px rgba(0, 0, 0, 0.1);
+  --_1y1ypret: rgba(255, 255, 255, 0.9);
+  --_1y1ypreu: rgba(58, 58, 58, 0.6);;
+  --_1y1yprev: 0px;
+  --_1y1yprew: 2px;
+  --_1y1yprex: 4px;
+  --_1y1yprey: 8px;
+  --_1y1yprez: 12px;
+  --_1y1ypre10: 16px;
+  --_1y1ypre11: 24px;
+  --_1y1ypre12: 32px;
+  --_1y1ypre13: 40px;
+  --_1y1ypre14: 48px;
+  --_1y1ypre15: 4;
+}
 .z7w48d0 {
   overflow: hidden;
 }
@@ -2732,50 +2776,6 @@ html {
   .z7w48doh {
     font-size: 3.5rem;
   }
-}
-._16nbsg40 {
-  --_1y1ypre0: std;
-  --_1y1ypre1: Standard;
-  --_1y1ypre2: 'Mulish', sans-serif;
-  --_1y1ypre3: 'Kanit', sans-serif;
-  --_1y1ypre4: black;
-  --_1y1ypre5: white;
-  --_1y1ypre6: 16px;
-  --_1y1ypre7: 400;
-  --_1y1ypre8: 500;
-  --_1y1ypre9: 700;
-  --_1y1yprea: 0.005em;
-  --_1y1ypreb: 0.01em;
-  --_1y1yprec: 0.04em;
-  --_1y1ypred: 1;
-  --_1y1ypree: 1.15;
-  --_1y1ypref: 1.2;
-  --_1y1ypreg: 1.3;
-  --_1y1ypreh: 1312px;
-  --_1y1yprei: 280px;
-  --_1y1yprej: all .5s ease;
-  --_1y1yprek: all .1s ease;
-  --_1y1yprel: 4px;
-  --_1y1yprem: 8px;
-  --_1y1ypren: 16px;
-  --_1y1ypreo: 24px;
-  --_1y1yprep: 1px;
-  --_1y1ypreq: 2px;
-  --_1y1yprer: 1px 4px 8px rgba(0, 0, 0, 0.05), 0px 10px 16px rgba(0, 0, 0, 0.08);
-  --_1y1ypres: 2px 4px 8px rgba(0, 0, 0, 0.06), 2px 14px 24px rgba(0, 0, 0, 0.1);
-  --_1y1ypret: rgba(255, 255, 255, 0.9);
-  --_1y1ypreu: rgba(58, 58, 58, 0.6);;
-  --_1y1yprev: 0px;
-  --_1y1yprew: 2px;
-  --_1y1yprex: 4px;
-  --_1y1yprey: 8px;
-  --_1y1yprez: 12px;
-  --_1y1ypre10: 16px;
-  --_1y1ypre11: 24px;
-  --_1y1ypre12: 32px;
-  --_1y1ypre13: 40px;
-  --_1y1ypre14: 48px;
-  --_1y1ypre15: 4;
 }
 .azdrti0 {
   margin: 0 auto;

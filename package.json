@@ -2,7 +2,7 @@
   "name": "fabric-x",
   "version": "0.1.0",
   "description": "Structural react components library",
-  "repository": "https://github.com/siuvdlec/fabric",
+  "repository": "https://github.com/siuvdlec/fabric-x",
   "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,7 +25,7 @@
   },
   "author": "Iacopo <siuvdlec@gmail.com>",
   "license": "MIT",
-  "homepage": "http://siuvdlec.github.io/fabric",
+  "homepage": "http://siuvdlec.github.io/fabric-x",
   "engines": {
     "node": ">=16"
   },

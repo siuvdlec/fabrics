@@ -2,4 +2,4 @@
 
 _Structural react components library_
 
-https://siuvdlec.github.io/fabric/
+https://siuvdlec.github.io/fabric-x

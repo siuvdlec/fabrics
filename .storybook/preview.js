@@ -1,6 +1,6 @@
 import '../src/css/common'
-import { FabricProvider } from '../src/providers/FabricProvider'
-import { stdTheme } from '../src/themes/std'
+import { FabricsProvider } from '../src/providers/FabricsProvider'
+import { defaultTheme } from '../src/themes/default'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -15,9 +15,9 @@ export const parameters = {
 export const decorators = [
     Story => {
         return (
-            <FabricProvider theme={stdTheme} env="development">
+            <FabricsProvider theme={defaultTheme} env="development">
                 <Story />
-            </FabricProvider>
+            </FabricsProvider>
         )
     },
 ]

@@ -1,8 +1,8 @@
-import type { FabricTokensRaw } from '../makeTheme'
+import type { FabricsTokensRaw } from '../makeTheme'
 
-export const tokens: FabricTokensRaw = {
-    name: 'std',
-    displayName: 'Standard',
+export const tokens: FabricsTokensRaw = {
+    name: 'default',
+    displayName: 'Default',
     typography: {
         fontFamily: {
             std: "'Mulish', sans-serif",

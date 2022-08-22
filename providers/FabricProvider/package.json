@@ -1,4 +1,0 @@
-{
-  "main": "dist/fabric-x-providers-FabricProvider.cjs.js",
-  "module": "dist/fabric-x-providers-FabricProvider.esm.js"
-}

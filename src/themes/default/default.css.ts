@@ -3,4 +3,4 @@ import { makeVanillaTokens } from '../makeTheme'
 import { vars } from '../vars.css'
 import { tokens } from './tokens'
 
-export const stdVanillaTheme = createTheme(vars, makeVanillaTokens(tokens))
+export const defaultVanillaTheme = createTheme(vars, makeVanillaTokens(tokens))

@@ -18,7 +18,7 @@ export interface BoxDataIdentifier {
     dataT?: string
 }
 
-export interface BoxBaseProps extends Omit<Atoms, 'reset' | 'color' | 'background'> {
+export interface BoxBaseProps extends Omit<Atoms, 'reset'> {
     className?: ClassValue
 }
 

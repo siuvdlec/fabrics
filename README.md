@@ -1,5 +1,5 @@
-# Fabric
+# Fabrics
 
 _Structural react components library_
 
-https://siuvdlec.github.io/fabric-x
+https://siuvdlec.github.io/fabrics

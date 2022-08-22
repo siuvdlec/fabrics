@@ -2,7 +2,7 @@ import { pipe } from 'fp-ts/function'
 import { objectMap } from '../library/object'
 
 // -------------------------------------------------------------------------------------
-// FabricTokensRaw
+// FabricsTokensRaw
 // -------------------------------------------------------------------------------------
 
 export interface TokensRaw {
@@ -23,7 +23,7 @@ export interface TokenMeasureAbsolute extends Partial<TokenMeasure> {
 
 export type FontWeight = 'normal' | 'medium' | 'bold'
 
-export interface FabricTokensRaw {
+export interface FabricsTokensRaw {
     name: string
     displayName: string
     typography: {
@@ -84,13 +84,13 @@ export interface FabricTokensRaw {
 }
 
 // -------------------------------------------------------------------------------------
-// FabricTokens
+// FabricsTokens
 // -------------------------------------------------------------------------------------
 
-export interface FabricTokens extends Required<FabricTokensRaw> {}
+export interface FabricsTokens extends Required<FabricsTokensRaw> {}
 
 // -------------------------------------------------------------------------------------
-// FabricVanillaTokens
+// FabricsVanillaTokens
 // -------------------------------------------------------------------------------------
 
 type RecursiveToString<A> = A extends { value: number }
@@ -99,7 +99,7 @@ type RecursiveToString<A> = A extends { value: number }
     ? string
     : { [k in keyof A]: RecursiveToString<A[k]> }
 
-export type FabricVanillaTokens = RecursiveToString<FabricTokens>
+export type FabricsVanillaTokens = RecursiveToString<FabricsTokens>
 
 const measureToString = (v: TokenMeasure | TokenMeasureAbsolute) =>
     typeof v.unit === 'undefined' ? `${v.value}` : `${v.value}${v.unit}`
@@ -120,7 +120,7 @@ export const recursiveToString = <O extends TokensRaw>(ts: O): RecursiveToString
         return recursiveToString(t)
     }) as RecursiveToString<O>
 
-const stringifyTokens = (tokens: FabricTokens): FabricVanillaTokens => {
+const stringifyTokens = (tokens: FabricsTokens): FabricsVanillaTokens => {
     const { space, grid, ...rts } = tokens
 
     return {
@@ -130,7 +130,7 @@ const stringifyTokens = (tokens: FabricTokens): FabricVanillaTokens => {
     }
 }
 
-export function makeVanillaTokens(tokens: FabricTokensRaw): FabricVanillaTokens {
+export function makeVanillaTokens(tokens: FabricsTokensRaw): FabricsVanillaTokens {
     return pipe(tokens, stringifyTokens)
 }
 
@@ -138,12 +138,12 @@ export function makeVanillaTokens(tokens: FabricTokensRaw): FabricVanillaTokens 
 // Theme maker functions
 // -------------------------------------------------------------------------------------
 
-export interface FabricTheme {
-    tokens: FabricTokens
+export interface FabricsTheme {
+    tokens: FabricsTokens
     tokensClassName: string
 }
 
-export function makeFabricTheme(tokens: FabricTokens, tokensClassName: string): FabricTheme {
+export function makeFabricsTheme(tokens: FabricsTokens, tokensClassName: string): FabricsTheme {
     return {
         tokens,
         tokensClassName,

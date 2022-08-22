@@ -3,4 +3,4 @@ dist
 storybook-static
 .idea
 coverage
-tsconfig.tsbuildinfo
+*.tsbuildinfo

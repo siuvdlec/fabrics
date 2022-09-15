@@ -12,7 +12,7 @@ const meta: Meta = {
 export default meta
 
 const Template: Story<BoxProps> = args => (
-    <Box {...args} style={{ backgroundColor: 'lightgray' }}>
+    <Box {...args}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum ex gravida fermentum efficitur.
     </Box>
 )
@@ -21,4 +21,12 @@ export const Base = Template.bind({})
 Base.args = {
     padding: { mobile: 'm' },
     width: { tablet: '1/2' },
+    style: { backgroundColor: 'lightgray' },
+}
+
+export const BaseShadow = Template.bind({})
+BaseShadow.args = {
+    padding: { mobile: 'm' },
+    width: { tablet: '1/2' },
+    boxShadow: 'drop-1',
 }

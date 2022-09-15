@@ -74,8 +74,8 @@ export const tokens: FabricsTokensRaw = {
         },
     },
     shadows: {
-        'drop-0': '1px 4px 8px rgba(0, 0, 0, 0.05), 0px 10px 16px rgba(0, 0, 0, 0.08)',
-        'drop-1': '2px 4px 8px rgba(0, 0, 0, 0.06), 2px 14px 24px rgba(0, 0, 0, 0.1)',
+        'drop-0': '0px 1px 4px rgba(0, 0, 0, 0.2)',
+        'drop-1': '1px 4px 8px rgba(0, 0, 0, 0.05), 0px 10px 16px rgba(0, 0, 0, 0.08)',
     },
     dimmer: {
         light: 'rgba(255, 255, 255, 0.9)',

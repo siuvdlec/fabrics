@@ -1,6 +1,6 @@
 {
   "name": "fabrics",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Structural react components library",
   "repository": "https://github.com/siuvdlec/fabrics",
   "sideEffects": false,

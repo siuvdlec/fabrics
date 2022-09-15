@@ -13,11 +13,6 @@ export interface BoxDataAttribute {
     dataTest?: string
 }
 
-export interface BoxDataIdentifier {
-    dataI?: string
-    dataT?: string
-}
-
 export interface BoxBaseProps extends Omit<Atoms, 'reset'> {
     className?: ClassValue
 }
@@ -51,8 +46,7 @@ export type BoxMargin = Pick<BoxBaseProps, BoxMarginNames>
 export interface BoxProps
     extends BoxBaseProps,
         Omit<AllHTMLAttributes<HTMLElement>, 'width' | 'height' | 'className'>,
-        BoxDataAttribute,
-        BoxDataIdentifier {
+        BoxDataAttribute {
     component?: ElementType
     debugName?: string
 }

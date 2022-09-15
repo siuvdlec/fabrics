@@ -47,6 +47,7 @@ export interface FabricsTokensRaw {
             s: TokenMeasure | TokenMeasureAbsolute
             m: TokenMeasure | TokenMeasureAbsolute
             l: TokenMeasure | TokenMeasureAbsolute
+            xl: TokenMeasure | TokenMeasureAbsolute
         }
     }
     grid: number
@@ -65,8 +66,6 @@ export interface FabricsTokensRaw {
         radius: {
             xs: TokenMeasure
             s: TokenMeasure
-            m: TokenMeasure
-            l: TokenMeasure
         }
         width: {
             s: TokenMeasure

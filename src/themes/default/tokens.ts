@@ -31,6 +31,7 @@ export const tokens: FabricsTokensRaw = {
             s: { value: 1.15 },
             m: { value: 1.2 },
             l: { value: 1.3 },
+            xl: { value: 1.5 },
         },
     },
     contentWidth: {
@@ -47,16 +48,16 @@ export const tokens: FabricsTokensRaw = {
     },
     grid: 4,
     space: {
-        none: { value: 0, unit: 'px' },
-        '3xs': { value: 0.5, unit: 'px' },
-        xxs: { value: 1, unit: 'px' },
-        xs: { value: 2, unit: 'px' },
-        s: { value: 3, unit: 'px' },
-        m: { value: 4, unit: 'px' },
-        l: { value: 6, unit: 'px' },
-        xl: { value: 8, unit: 'px' },
-        xxl: { value: 10, unit: 'px' },
-        '3xl': { value: 12, unit: 'px' },
+        none: { value: 0, unit: 'px' }, // 0px
+        '3xs': { value: 0.5, unit: 'px' }, // 2px
+        xxs: { value: 1, unit: 'px' }, // 4px
+        xs: { value: 2, unit: 'px' }, // 8px
+        s: { value: 3, unit: 'px' }, // 12px
+        m: { value: 4, unit: 'px' }, // 16px
+        l: { value: 6, unit: 'px' }, // 24px
+        xl: { value: 8, unit: 'px' }, // 32px
+        xxl: { value: 10, unit: 'px' }, // 40px
+        '3xl': { value: 12, unit: 'px' }, // 48px
     },
     transitions: {
         medium: 'all .5s ease',
@@ -64,10 +65,8 @@ export const tokens: FabricsTokensRaw = {
     },
     border: {
         radius: {
-            xs: { value: 4, unit: 'px' },
-            s: { value: 8, unit: 'px' },
-            m: { value: 16, unit: 'px' },
-            l: { value: 24, unit: 'px' },
+            xs: { value: 2, unit: 'px' },
+            s: { value: 4, unit: 'px' },
         },
         width: {
             s: { value: 1, unit: 'px' },

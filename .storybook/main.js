@@ -9,15 +9,15 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-webpack5-compiler-swc"
   ],
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "webpack5"
+  "framework": {
+    "name": "@storybook/react-webpack5",
+    "options": {}
   },
   webpackFinal(baseConfig, options) {
 
-    const { module = {}, plugins = {} } = baseConfig;
+    const { module = {}, plugins = [] } = baseConfig;
 
     const cssRule = module.rules.find((rule) => rule?.test?.test('test.css'));
     cssRule.test = /.*(?<!\.vanilla)\.css$/;

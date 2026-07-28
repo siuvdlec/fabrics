@@ -1,5 +1,17 @@
-import type { ResponsiveArrayByMaxLength } from '@vanilla-extract/sprinkles/dist/declarations/src/types'
+import type { ResponsiveArray as ResponsiveArrayVanilla } from '@vanilla-extract/sprinkles'
 import { breakpointNames, BreakpointNames, firstBreakpointName } from '../../css/breakpoints'
+
+export type ResponsiveArrayByMaxLength<MaxLength extends number, Value> = [
+    never,
+    ResponsiveArrayVanilla<1, Value | null>,
+    ResponsiveArrayVanilla<1 | 2, Value | null>,
+    ResponsiveArrayVanilla<1 | 2 | 3, Value | null>,
+    ResponsiveArrayVanilla<1 | 2 | 3 | 4, Value | null>,
+    ResponsiveArrayVanilla<1 | 2 | 3 | 4 | 5, Value | null>,
+    ResponsiveArrayVanilla<1 | 2 | 3 | 4 | 5 | 6, Value | null>,
+    ResponsiveArrayVanilla<1 | 2 | 3 | 4 | 5 | 6 | 7, Value | null>,
+    ResponsiveArrayVanilla<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, Value | null>
+][MaxLength]
 
 export type ResponsiveScalar<A> = A
 export type ResponsiveDict<A> = { [K in BreakpointNames]?: A }

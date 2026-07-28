@@ -10,16 +10,30 @@ const exec =
     (cmd: string, args?: child_process.ExecOptions): TE.TaskEither<Error, void> =>
     () =>
         new Promise(resolve => {
-            child_process.exec(cmd, args, err => {
+            child_process.exec(cmd, args, (err, _stdout, stderr) => {
                 if (err !== null) {
-                    return resolve(left(err))
+                    return resolve(left(stderr ? new Error(stderr.toString()) : err))
                 }
 
                 return resolve(right(undefined))
             })
         })
 
-export const main = exec('npm publish', {
+const getOtp = (): string | undefined => {
+    const fromArgv = process.argv.find(arg => arg.startsWith('--otp='))?.split('=')[1]
+    const fromEnv = process.env.NPM_OTP
+    const value = fromArgv ?? fromEnv
+
+    if (value !== undefined && !/^[a-zA-Z0-9]+$/.test(value)) {
+        throw new Error('Invalid OTP: expected an alphanumeric code')
+    }
+
+    return value
+}
+
+const otp = getOtp()
+
+export const main = exec(`npm publish${otp !== undefined ? ` --otp=${otp}` : ''}`, {
     cwd: DIST,
 })
 
